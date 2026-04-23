@@ -1,0 +1,214 @@
+/* --- 1. Variables et Configuration de base --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #7c3aed;
+    --primary-hover: #6d28d9;
+    --bg-light-purple: #f5f3ff;
+    --text-dark: #1e1b4b;
+    --text-light: #6b7280;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light-purple);
+    line-height: 1.6;
+}
+
+/* --- 2. En-tête (Header) --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    margin: 0 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-large {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+/* --- 3. Section Principale (Hero) avec Flexbox --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 5%;
+    background: linear-gradient(135deg, var(--white) 0%, var(--bg-light-purple) 100%);
+}
+
+.hero-texte {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-texte h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+.hero-texte p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Style pour l'image 2 */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.15);
+}
+
+/* --- 4. Section "Comment ça marche" avec Image --- */
+#comment-ca-marche {
+    padding: 5rem 5%;
+    background-color: var(--white);
+}
+
+#comment-ca-marche h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.comment-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.comment-image {
+    flex: 1;
+}
+
+/* Style pour l'image 3 */
+.comment-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.etapes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.etape {
+    background-color: var(--bg-light-purple);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.etape:hover {
+    transform: translateX(10px); /* L'étape glisse légèrement vers la droite au survol */
+}
+
+.etape h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.etape p {
+    color: var(--text-light);
+}
+
+/* --- 5. Pied de page (Footer) --- */
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    background-color: var(--text-dark);
+    color: var(--white);
+}
+
+/* --- 6. Design Responsive (Smartphones) --- */
+@media (max-width: 900px) {
+    .hero, .comment-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-texte, .hero-image {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        justify-content: center;
+    }
+
+    .hero-texte h1 {
+        font-size: 2.2rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
