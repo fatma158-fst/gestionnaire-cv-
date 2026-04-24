@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choisissez le design de votre CV</title>
+    <link rel="stylesheet" href="modele.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="location.href='index1.html'">CVeyaa express</div>
+        <button onclick="location.href='formulaire.html'" class="btn-retour">Retour au formulaire</button>
+    </header>
+
+    <main class="modeles-container">
+        <h1>Choisissez votre modèle de CV</h1>
+        <p class="subtitle">Sélectionnez le design qui mettra le mieux en valeur votre profil.</p>
+
+        <div class="grille-modeles">
+
+            <div class="carte-modele">
+                <div class="image-modele">
+                    <img src="image4.webp" alt="Aperçu CV Classique">
+                    <span class="badge">Le plus populaire</span>
+                </div>
+                <div class="info-modele">
+                    <h3>Le Classique Pro</h3>
+                    <p>Un design intemporel, sobre et structuré, idéal pour tous les secteurs d'activité.</p>
+                    <button class="btn-choisir" onclick="telechargerPDF('classique')">Choisir ce design</button>
+                </div>
+            </div>
+
+            <div class="carte-modele">
+                <div class="image-modele">
+                    <img src="image5.webp" alt="Aperçu CV Moderne Dark">
+                    <span class="badge badge-violet">Nouveau</span>
+                </div>
+                <div class="info-modele">
+                    <h3>Le Moderne Dark</h3>
+                    <p>Un design bicolore dynamique avec colonne sombre et contenu clair.</p>
+                    <button class="btn-choisir" onclick="telechargerPDF('moderne')">Choisir ce design</button>
+                </div>
+            </div>
+
+            <div class="carte-modele">
+                <div class="image-modele">
+                    <img src="image7.jpg" alt="Aperçu CV Créatif">
+                </div>
+                <div class="info-modele">
+                    <h3>Le Créatif Bold</h3>
+                    <p>Un bandeau sombre en haut et des sections en violet pour vous démarquer.</p>
+                    <button class="btn-choisir" onclick="telechargerPDF('creatif')">Choisir ce design</button>
+                </div>
+            </div>
+
+            <div class="carte-modele">
+                <div class="image-modele">
+                    <img src="image6.webp" alt="Aperçu CV Minimaliste">
+                </div>
+                <div class="info-modele">
+                    <h3>Le Minimaliste Chic</h3>
+                    <p>Une mise en page épurée et très professionnelle, élégante et sobre.</p>
+                    <button class="btn-choisir" onclick="telechargerPDF('minimaliste')">Choisir ce design</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- jsPDF chargé ici, modele.js le recharge dynamiquement si besoin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="modele.js"></script>
+</body>
+</html>

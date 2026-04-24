@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de votre CV</title>
+    <link rel="stylesheet" href="formulaire.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="location.href='index1.html'">CVeyaa express</div>
+        <button onclick="location.href='index1.html'" class="btn-retour">Retour à l'accueil</button>
+    </header>
+
+    <div class="form-container">
+        <h1>Remplissez vos informations</h1>
+        <p class="subtitle">Complétez les champs ci-dessous pour générer votre CV professionnel.</p>
+
+        <div id="message-erreur" style="color: red; font-weight: bold; text-align: center; margin-bottom: 15px;"></div>
+
+        <form action="#" method="POST">
+            
+            <fieldset>
+                <legend>👤 Informations Personnelles</legend>
+                <div class="form-group">
+                    <label>Nom et Prénom :</label>
+                    <input type="text" id="nom" placeholder="Ex: Vladimir Angelo Biden" required>
+                </div>
+                <div class="form-group">
+                    <label>Titre du poste (Métier) :</label>
+                    <input type="text" id="metier" placeholder="Ex: COMPTABLE" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Années d'expérience (Chiffre uniquement) :</label>
+                    <input type="number" id="experience" placeholder="Ex: 5" required>
+                </div>
+                <div class="form-group">
+                    <label>Photo de profil :</label>
+                    <input type="file" id="photo" accept="image/*">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nationalité :</label>
+                        <input type="text" id="nationalite" placeholder="Ex: Ivoirien">
+                    </div>
+                    <div class="form-group">
+                        <label>Situation familiale :</label>
+                        <select id="situation" required onchange="afficherChampEnfants()">
+                            <option value="" disabled selected>-- Choisissez une option --</option>
+                            <option value="Célibataire">Célibataire</option>
+                            <option value="Marié(e)">Marié(e)</option>
+                            <option value="Pacsé(e)">Pacsé(e)</option>
+                            <option value="Divorcé(e)">Divorcé(e)</option>
+                            <option value="Veuf/Veuve">Veuf/Veuve</option>
+                        </select>
+                    </div>
+                </div> <div class="form-group" id="groupe_enfants" style="display: none;">
+                    <label>Nombre d'enfants :</label>
+                    <input type="number" id="nbr_enfants" min="0" placeholder="Ex: 3">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date de naissance :</label>
+                        <input type="date" id="date_naissance" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Âge :</label>
+                        <input type="number" id="age" placeholder="Ex: 42" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Adresse complète :</label>
+                    <input type="text" id="adresse" placeholder="Ex: Abobo derrière raille - Abidjan - CIV">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email :</label>
+                        <input type="email" id="email" placeholder="Ex: email@usa.fr">
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone :</label>
+                        <input type="tel" id="telephone" placeholder="Ex: +225 07 00 31 25 66">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Permis de conduire :</label>
+                    <input type="text" id="permis" placeholder="Ex: Permis de conduire BCDE">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📝 Présentation / Profil</legend>
+                <div class="form-group">
+                    <label>Décrivez votre profil en quelques lignes :</label>
+                    <textarea id="presentation" rows="4" placeholder="Ex: Professionnel dans le domaine des finances..."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>💼 Expériences Professionnelles (Dernière expérience)</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Période :</label>
+                        <input type="text" id="exp_periode" placeholder="Ex: Mai 2021 à ce jour">
+                    </div>
+                    <div class="form-group">
+                        <label>Poste et Entreprise :</label>
+                        <input type="text" id="exp_poste" placeholder="Ex: COMPTABLE - ONG CERAB">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Missions et tâches réalisées :</label>
+                    <textarea id="exp_missions" rows="4" placeholder="- Assurer la gestion comptable...&#10;- Établir le rapprochement bancaire..."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>🎓 Formations & Diplômes (Dernier diplôme)</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Année(s) :</label>
+                        <input type="text" id="form_annee" placeholder="Ex: 2015-2016">
+                    </div>
+                    <div class="form-group">
+                        <label>Diplôme et Établissement :</label>
+                        <input type="text" id="form_diplome" placeholder="Ex: Licence Pro - Institut Supérieur...">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>⚙️ Compétences</legend>
+                <div class="form-group">
+                    <label>Compétences techniques (Hard skills) :</label>
+                    <input type="text" id="comp_techniques" placeholder="Ex: Suivi budgétaire, Tenue comptable, Gestion de stock...">
+                </div>
+                <div class="form-group">
+                    <label>Aptitudes (Soft skills) :</label>
+                    <input type="text" id="comp_aptitudes" placeholder="Ex: Organisé, Dynamique, Leadership, Esprit d'équipe...">
+                </div>
+                <div class="form-group">
+                    <label>Informatique (Logiciels) :</label>
+                    <input type="text" id="comp_logiciels" placeholder="Ex: Word, Excel, PowerPoint, Sage Saari...">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>🌍 Langues & Hobbies</legend>
+                <div class="form-group">
+                    <label>Langues parlées :</label>
+                    <input type="text" id="langues" placeholder="Ex: Français (Courant), Anglais (Moyen), Russe (Basique)">
+                </div>
+                <div class="form-group">
+                    <label>Hobbies / Loisirs :</label>
+                    <input type="text" id="hobbies" placeholder="Ex: Lecture, Football, Jeux vidéo...">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>➕ Autres informations</legend>
+                <div class="form-group">
+                    <label>Informations complémentaires :</label>
+                    <textarea id="autres_infos" class="libre-size" placeholder="Ajoutez ici toute autre information utile (liens, projets, références...)"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="submit-btn-container">
+                <button type="button" class="btn-submit" onclick="validerEtAllerAuxModeles()">Choisir mon design 🎨</button>
+            </div>
+
+        </form>
+    </div>
+    <script src="formulaire.js"></script>
+</body>
+</html>
